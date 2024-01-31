@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function Character() {
   let { id } = useParams();
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
 
   const [character, setCharacter] = useState(null);
   const [films, setFilms] = useState([]);
@@ -35,15 +35,20 @@ export default function Character() {
 
   return (
     <>
-      <div>{character ? <p>{character.name}</p> : <p>loading</p>}</div>
+      <div>Character: {character ? character.name : <></>}</div>
+      <div onClick={() => navigate(`/planets/${planet.id}`)}>Home Planet: {planet ? planet.name : <></>}</div>
       <div>
+        <h3>Films</h3>
         {films ? (
-          films.map((film, index) => <p key={index} onClick={() => navigate(`/films/${film.id}`)}>{film.title}</p>)
+          films.map((film, index) => (
+            <p key={index} onClick={() => navigate(`/films/${film.id}`)}>
+              {film.title}
+            </p>
+          ))
         ) : (
           <p>loading</p>
         )}
       </div>
-      <div>{planet ? <p>{planet.name}</p> : <p>loading</p>}</div>
     </>
   );
 }

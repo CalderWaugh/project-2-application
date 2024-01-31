@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Film() {
   let { id } = useParams();
+  let navigate = useNavigate();
 
   const [characters, setCharacters] = useState(null);
   const [film, setFilm] = useState([]);
@@ -21,9 +22,8 @@ export default function Film() {
   }
 
   async function getFilmCharacters() {
-    const res = await fetch(`http://localhost:3001/api/characters/${id}/films`);
+    const res = await fetch(`http://localhost:3001/api/films/${id}/characters`);
     const item = await res.json();
-    console.log(item);
     setCharacters(item);
   }
 
@@ -35,19 +35,29 @@ export default function Film() {
 
   return (
     <>
-      <div>{film ? <p>{film.title}</p> : <p>loading</p>}</div>
+      <div>Film: {film ? film.title : <></>}</div>
       <div>
+        <h3>Characters</h3>
         {characters ? (
-          characters.map((char, index) => <p key={index}>{char.name}</p>)
+          characters.map((char, index) => (
+            <p key={index} onClick={() => navigate(`/characters/${char.id}`)}>
+              {char.name}
+            </p>
+          ))
         ) : (
-          <p>loading</p>
+          <></>
         )}
       </div>
       <div>
+        <h3>Planets</h3>
         {planets ? (
-          planets.map((planet, index) => <p key={index}>{planet.name}</p>)
+          planets.map((planet, index) => (
+            <p key={index} onClick={() => navigate(`/planets/${planet.id}`)}>
+              {planet.name}
+            </p>
+          ))
         ) : (
-          <p>loading</p>
+          <></>
         )}
       </div>
     </>
