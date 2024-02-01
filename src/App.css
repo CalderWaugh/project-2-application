@@ -1,11 +1,18 @@
+:root {
+  --primary: rgb(67, 41, 184);
+  --secondary : rgb(140, 0, 255);
+  --background: rgb(89, 202, 236);
+}
+
 .App.container {
   text-align: center;
 }
 
 .App.header {
   border-bottom: 1px solid black;
-  background-color: beige;
+  background-color: var(--primary);
   padding: 10px;
+
 }
 
 .App.app-body {
