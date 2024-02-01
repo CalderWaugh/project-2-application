@@ -5,7 +5,14 @@
 .App.header {
   border-bottom: 1px solid black;
   background-color: beige;
-  padding: 10px;
+  padding: 20px;
+}
+
+.App.header-title {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: x-large;
 }
 
 .App.app-body {

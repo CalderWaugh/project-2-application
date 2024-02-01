@@ -57,7 +57,7 @@ export default function Film() {
           )}
         </div>
       </div>
-      <div>
+      <div className={"Films planet-section"}>
         <h3>Planets</h3>
         <div className={"Films planet-list"}>
           {planets ? (

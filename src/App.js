@@ -9,7 +9,7 @@ function App() {
   return (
     <section className={"App container"}>
       <div className={"App header"}>
-        <h1>SWAPI</h1>
+        <a href="/" className={"App header-title"}>SWAPI</a>
       </div>
       <div className={"App app-body"}>
         <BrowserRouter>
