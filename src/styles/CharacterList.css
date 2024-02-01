@@ -1,0 +1,15 @@
+.CharacterList.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+    word-wrap: break-word;
+    align-items: center;
+}
+
+.CharacterList.character-box {
+    background-color: beige;
+    margin: 10px;
+    width: 50%;
+    text-align: center;
+    flex: 25%;
+}

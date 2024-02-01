@@ -1,0 +1,40 @@
+.Films.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Films.general-info-container {
+}
+
+.Films.film-name-container {
+  background-color: beige;
+  margin: 10px;
+  width: 50%;
+  text-align: center;
+}
+
+.Films.film-name {
+}
+
+.Films.characters-container {
+}
+
+.Films.character {
+}
+
+.Films.character-list, .Films.planet-list {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  word-wrap: break-word;
+  align-items: center;
+}
+
+.Films.character-name-container, .Films.planet-name-container {
+  background-color: beige;
+  margin: 10px;
+  width: 50%;
+  text-align: center;
+  flex: 25%;
+}

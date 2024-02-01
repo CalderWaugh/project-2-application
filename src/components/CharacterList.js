@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "../styles/CharacterList.css";
 
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
 
   async function getCharacters() {
     const res = await fetch("http://localhost:3001/api/characters");
@@ -20,12 +21,16 @@ export default function CharacterList() {
   };
 
   return (
-    <>
+    <div className={"CharacterList container"}>
       {characters.map((char, index) => (
-        <div key={index} onClick={() => handleCharacterClick(char.id)}>
-          {char.name}
+        <div
+          key={index}
+          onClick={() => handleCharacterClick(char.id)}
+          className={"CharacterList character-box"}
+        >
+          <p>{char.name}</p>
         </div>
       ))}
-    </>
+    </div>
   );
 }

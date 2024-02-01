@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "../styles/Films.css";
 
 export default function Film() {
   let { id } = useParams();
@@ -34,32 +35,46 @@ export default function Film() {
   }, []);
 
   return (
-    <>
-      <div>Film: {film ? film.title : <></>}</div>
+    <div className={"Films container"}>
+      <div className={"Films film-name-container"}>
+        <p className={"Films film-name"}>Film: {film ? film.title : <></>}</p>
+      </div>
       <div>
         <h3>Characters</h3>
-        {characters ? (
-          characters.map((char, index) => (
-            <p key={index} onClick={() => navigate(`/characters/${char.id}`)}>
-              {char.name}
-            </p>
-          ))
-        ) : (
-          <></>
-        )}
+        <div className={"Films character-list"}>
+          {characters ? (
+            characters.map((char, index) => (
+              <div
+                key={index}
+                onClick={() => navigate(`/characters/${char.id}`)}
+                className={"Films character-name-container"}
+              >
+                <p>{char.name}</p>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
       <div>
         <h3>Planets</h3>
-        {planets ? (
-          planets.map((planet, index) => (
-            <p key={index} onClick={() => navigate(`/planets/${planet.id}`)}>
-              {planet.name}
-            </p>
-          ))
-        ) : (
-          <></>
-        )}
+        <div className={"Films planet-list"}>
+          {planets ? (
+            planets.map((planet, index) => (
+              <div
+                key={index}
+                onClick={() => navigate(`/planets/${planet.id}`)}
+                className={"Films planet-name-container"}
+              >
+                <p>{planet.name}</p>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }

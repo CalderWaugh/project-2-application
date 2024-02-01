@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "../styles/Character.css";
 
 export default function Character() {
   let { id } = useParams();
@@ -34,21 +35,39 @@ export default function Character() {
   }, []);
 
   return (
-    <>
-      <div>Character: {character ? character.name : <></>}</div>
-      <div onClick={() => navigate(`/planets/${planet.id}`)}>Home Planet: {planet ? planet.name : <></>}</div>
-      <div>
-        <h3>Films</h3>
-        {films ? (
-          films.map((film, index) => (
-            <p key={index} onClick={() => navigate(`/films/${film.id}`)}>
-              {film.title}
-            </p>
-          ))
-        ) : (
-          <p>loading</p>
-        )}
+    <div className={"Character container"}>
+      <div className={"Character general-info-container"}>
+        <h3>General Info</h3>
+        <div className={"Character general-info-content-container"}>
+          <div className={"Character general-info-item"}>
+            <p>Character: {character ? character.name : <></>}</p>
+          </div>
+          <div
+            onClick={() => navigate(`/planets/${planet.id}`)}
+            className={"Character general-info-item"}
+          >
+            <p>Home Planet: {planet ? planet.name : <></>}</p>
+          </div>
+        </div>
       </div>
-    </>
+      <div className={"Character films-container"}>
+        <h3>Films</h3>
+        <div className={"Character film-list"}>
+          {films ? (
+            films.map((film, index) => (
+              <div
+                key={index}
+                onClick={() => navigate(`/films/${film.id}`)}
+                className={"Character film-name-container"}
+              >
+                <p>{film.title}</p>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
