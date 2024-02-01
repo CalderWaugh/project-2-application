@@ -1,0 +1,49 @@
+.Planet.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Planet.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  word-wrap: break-word;
+  align-items: center;
+}
+
+.Planet.character-name-container {
+  background-color: beige;
+  margin: 10px;
+  width: 50%;
+  text-align: center;
+  flex: 25%;
+  cursor: pointer;
+}
+
+.Planet.film-list {
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  word-wrap: break-word;
+  align-items: center;
+}
+
+.Planet.film-name-container {
+    background-color: beige;
+    margin: 10px;
+    width: 50%;
+    text-align: center;
+    flex: 25%;
+    cursor: pointer;
+}
+
+.Planet.planet-name-container {
+  background-color: beige;
+  width: 50%;
+  text-align: center;
+}
+
+.Planet.film-section {
+    width: 100%;
+}

@@ -12,4 +12,5 @@
     width: 50%;
     text-align: center;
     flex: 25%;
+    cursor: pointer;
 }
