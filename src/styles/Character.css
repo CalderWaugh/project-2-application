@@ -13,7 +13,7 @@
 }
 
 .Character.general-info-item {
-  background-color: beige;
+  background-color: var(--secondary);
   margin: 10px;
   width: 50%;
   text-align: center;
@@ -36,7 +36,7 @@
 }
 
 .Character.film-name-container {
-  background-color: beige;
+  background-color: var(--secondary);
   margin: 10px;
   width: 50%;
   text-align: center;
